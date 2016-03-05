@@ -1,7 +1,7 @@
 {
-  "name": "libbri-frontend",
+  "name": "skeleton-frontend",
   "version": "1.0.0",
-  "description": "libbri frontend app",
+  "description": "skeleton frontend app",
   "main": "app.js",
   "scripts": {
     "test": "grunt test"
