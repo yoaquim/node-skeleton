@@ -1,12 +1,13 @@
 var gulp = require('gulp');
+var paths = require('./paths');
 var fs = require('fs');
-var tasks = fs.readdirSync('./tasks');
+var tasks = fs.readdirSync(paths.tasks);
 
 tasks.forEach(function (task) {
     var name = task.split('.')[0];
-    gulp.task(name, require('./tasks/' + task));
+    gulp.task(name, require(paths.tasks + task));
 });
 
-gulp.task('build', ['browserify']);
+gulp.task('watch', ['server', 'watchify']);
 
-gulp.task('default', ['build']);
+gulp.task('default', ['test', 'build']);

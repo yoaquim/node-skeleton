@@ -1,19 +1,42 @@
 {
-  "name": "skeleton-frontend",
+  "name": "front-end-skeleton",
   "version": "1.0.0",
-  "description": "skeleton frontend app",
+  "description": "Frontend Skeleton Project to quickly build upon",
   "main": "app.js",
-  "scripts": {
-    "test": "grunt test"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yoaquim/front-end-skeleton"
   },
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "start": "npm install -g gulp && npm install && cd ./build && gulp watch",
+    "test": "gulp test"
+  },
+  "author": "Yoaquim Cintron",
   "devDependencies": {
     "browserify": "^13.0.0",
     "gulp": "^3.9.1",
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-browserify": "^5.0.5",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-spec-reporter": "0.0.26",
+    "node-lessify": "^0.1.4",
+    "partialify": "^3.1.6",
+    "phantomjs-prebuilt": "^2.1.7",
+    "stringify": "^5.1.0",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0",
+    "yargs": "~4.7.1",
+    "gulp-webserver": "~0.9.1"
+  },
+  "dependencies": {
+    "jquery": "~2.2.4",
+    "lodash.assign": "^4.0.9",
+    "lodash.template": "^4.2.5"
   }
 }
