@@ -16,9 +16,12 @@ module.exports = function () {
 
     return b
         .transform(stringify, {
-            appliesTo: { includeExtensions: ['.html'] }
+            appliesTo: { includeExtensions: ['.html'] },
+            minify: true
         })
-        .transform('node-lessify')
+        .transform('node-lessify', {
+            textMode: true
+        })
         .bundle()
         .on('error', gutil.log.bind(gutil, 'Browserify Error'))
         .pipe(source('dist.js'))

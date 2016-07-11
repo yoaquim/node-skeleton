@@ -7,6 +7,7 @@ var stringify = require('stringify');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var karma = require('karma');
+var webServer = require('./server');
 
 function karmify (){
     return new karma.Server({
@@ -27,7 +28,12 @@ function prepWatcher () {
 function bundle() {
     karmify();
     prepWatcher();
-    return watcher
+    return watcher;
+}
+
+function initialBundle () {
+    webServer();
+    return bundle();
 }
 
 var watcher =  watchify(browserify({
@@ -35,10 +41,12 @@ var watcher =  watchify(browserify({
     debug: true
 }));
 
-watcher.transform(stringify, { appliesTo: { includeExtensions: ['.html'] } });
-watcher.transform('node-lessify')
-watcher.on('update', bundle)
-watcher.on('update', karmify)
+watcher.transform(stringify, {
+    appliesTo: { includeExtensions: ['.html'] },
+    minify: true
+});
+watcher.transform('node-lessify', { textMode: true });
+watcher.on('update', bundle);
 watcher.on('log', gutil.log);
 
-module.exports = bundle;
+module.exports = initialBundle;

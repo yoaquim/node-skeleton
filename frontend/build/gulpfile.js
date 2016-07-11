@@ -8,6 +8,4 @@ tasks.forEach(function (task) {
     gulp.task(name, require(paths.tasks + task));
 });
 
-gulp.task('watch', ['server', 'watchify']);
-
 gulp.task('default', ['test', 'build']);

@@ -8,8 +8,9 @@
     "url": "git://github.com/yoaquim/front-end-skeleton"
   },
   "scripts": {
-    "start": "npm install -g gulp && npm install && cd ./build && gulp watch",
-    "test": "gulp test"
+    "setup": "npm install -g gulp && npm install",
+    "start": "cd ./build && gulp watch",
+    "test": "cd ./build && gulp test"
   },
   "author": "Yoaquim Cintron",
   "devDependencies": {
